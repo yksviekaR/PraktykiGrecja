@@ -11,9 +11,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Elms+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
+
     <header class="sticky-header" id="stickyHeader">
         <h1>GRECJA 2025</h1>
     </header>
+
     <section class="parallax-hero">
         <div class="parallax-bg" id="parallaxBg"></div>
         <div class="hero-content" id="heroContent">
@@ -21,6 +23,7 @@
             <p>IT • Gastronomia • Mechanika – przyszłość zaczyna się tutaj.</p>
         </div>
     </section>
+
     <nav>
         <ul>
             <li><a href="">IT</a>
@@ -30,14 +33,14 @@
                     <li><a href="">C++</a></li>
                 </ul>
             </li>
-            <li><a href="">Gastronomy</a>
+            <li><a href="">Gastronomia</a>
                 <ul>
                     <li><a href="">Kuchnia grecka</a></li>
                     <li><a href="">Wina</a></li>
                     <li><a href="">Desery</a></li>
                 </ul>    
             </li>
-            <li><a href="">Mechanic</a>
+            <li><a href="">Mechanika</a>
                 <ul>
                     <li><a href="">Silniki</a></li>
                     <li><a href="">Elektronika</a></li>
@@ -46,40 +49,41 @@
             </li>
         </ul>
     </nav>
+
     <div class="content">
         <p><strong>GRECJA 2025</strong> – Praktyki zagraniczne</p>
     </div>
 
     <script>
-        const heroContent = document.getElementById('heroContent');
-        const parallaxBg = document.getElementById('parallaxBg');
         const stickyHeader = document.getElementById('stickyHeader');
-        const heroSection = document.querySelector('.parallax-hero');
+        const heroSection  = document.querySelector('.parallax-hero');
+        const heroContent  = document.getElementById('heroContent');
+        const parallaxBg   = document.getElementById('parallaxBg');
 
-        window.addEventListener('scroll', () => {
-            const scroll = window.scrollY;
-            const heroHeight = heroSection.offsetHeight;
+        function update() {
+            const scroll = window.pageYOffset;
+            const height = heroSection.offsetHeight;
 
-            // Parallax tła
-            const parallaxSpeed = scroll * 0.5;
-            parallaxBg.style.transform = `translateY(${parallaxSpeed}px)`;
+            // Parallax
+            parallaxBg.style.transform = `translateY(${scroll * 0.5}px)`;
 
-            // Skalowanie i znikanie dużego tytułu
-            const progress = Math.min(scroll / (heroHeight * 0.7), 1);
-            const scale = 1 - (progress * 0.7);
+            // Znikanie dużego tytułu
+            const scale = Math.max(0.4, 1 - scroll / height);
             heroContent.style.transform = `scale(${scale})`;
-            heroContent.style.opacity = 1 - progress;
+            heroContent.style.opacity = 1 - scroll / height;
 
-            // Pokazanie sticky headera
-            if (scroll > heroHeight * 0.6) {
+            // Niebieski pasek – pokazuje się po przewinięciu połowy hero
+            if (scroll > height * 0.5) {
                 stickyHeader.classList.add('visible');
             } else {
                 stickyHeader.classList.remove('visible');
             }
-        });
+        }
 
-        // Smooth scroll
-        document.documentElement.style.scrollBehavior = 'smooth';
+        window.addEventListener('scroll', update);
+        window.addEventListener('load', update);
+        window.addEventListener('resize', update);
+        setTimeout(update, 100); // na wszelki wypadek
     </script>
 </body>
 </html>
