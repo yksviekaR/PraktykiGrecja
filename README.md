@@ -1,2 +1,2 @@
 # PraktykiGrecja
-eloelo
+eloelo czesc
