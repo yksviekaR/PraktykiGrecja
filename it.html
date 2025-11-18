@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Praktyki IT za granicą – Nasza przygoda</title>
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Google Fonts – optional, fajny font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            background: #f8f9fa; 
+            color: #333; 
+            line-height: 1.6;
+        }
+        
+        /* Hero z parallax */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop') center/cover fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+        .hero h1 { font-size: 4.5rem; margin-bottom: 20px; }
+        .hero p { font-size: 1.8rem; max-width: 800px; }
+
+        /* Sekcje */
+        .section {
+            padding: 100px 10%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .section h2 {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 60px;
+            color: #2c3e50;
+        }
+
+        /* Timeline / Tygodnie */
+        .week {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 100px;
+            align-items: center;
+        }
+        .week.reverse { grid-template-columns: 1fr 1fr; direction: rtl; }
+        .week.reverse .week-content { direction: ltr; }
+
+        .week-img {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+        .week-img img { width: 100%; height: auto; display: block; transition: transform 0.5s; }
+        .week-img img:hover { transform: scale(1.08); }
+
+        .week-content h3 { font-size: 2.4rem; margin-bottom: 25px; color: #3498db; }
+        .week-content p { font-size: 1.2rem; margin-bottom: 20px; }
+
+        /* Galeria zdjęć w tygodniu */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+        .gallery img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transition: transform 0.4s;
+        }
+        .gallery img:hover { transform: translateY(-12px); }
+
+        /* Responsywność */
+        @media (max-width: 968px) {
+            .week, .week.reverse { grid-template-columns: 1fr; text-align: center; }
+            .hero h1 { font-size: 3.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- HERO -->
+    <section class="hero" data-aos="fade">
+        <div class="hero-content">
+            <h1>Nasza przygoda na praktykach IT<br><span style="color:#3498db;">w [Kraj/Miasto]</span></h1>
+            <p>2 tygodnie pełne kodowania, nowych technologii, zwiedzania i niezapomnianych wspomnień!</p>
+        </div>
+    </section>
+
+    <!-- WSTĘP -->
+    <section class="section" data-aos="fade-up">
+        <h2>Nasza przygoda – krok po kroku</h2>
+        <p style="text-align:center; font-size:1.3rem; max-width:900px; margin:0 auto 60px;">
+            Przez dwa tygodnie pracowaliśmy nad realnymi projektami IT, uczyliśmy się nowych technologii i jednocześnie poznawaliśmy kulturę [kraju]. Oto co robiliśmy dzień po dniu!
+        </p>
+    </section>
+
+    <!-- TYDZIEŃ 1 -->
+    <section class="section">
+        <div class="week" data-aos="fade-right">
+            <div class="week-img">
+                <img src="https://images.unsplash.com/photo-1517180102446-fd915f0a7d7f?q=80&w=2067&auto=format&fit=crop" alt="Tydzień 1">
+            </div>
+            <div class="week-content">
+                <h3>Tydzień 1 – Początek przygody</h3>
+                <p>Przyjechaliśmy, zakwaterowaliśmy się i zaczęliśmy onboarding w firmie. Poznaliśmy zespół, setup środowiska developerskiego i rozpoczęliśmy pracę nad projektem [nazwa projektu].</p>
+                <p>Uczyliśmy się [technologia np. React + Node.js], robiliśmy daily meetings i pierwsze pull requesty.</p>
+                <p>W czasie wolnym zwiedziliśmy stare miasto, spróbowaliśmy lokalnej kuchni i zrobiliśmy pierwsze wspólne zdjęcia!</p>
+                
+                <div class="gallery" data-aos="fade-up">
+                    <img src="zdjecie1.jpg" alt="Zdjęcie 1">
+                    <img src="zdjecie2.jpg" alt="Zdjęcie 2">
+                    <img src="zdjecie3.jpg" alt="Zdjęcie 3">
+                    <img src="zdjecie4.jpg" alt="Zdjęcie 4">
+                </div>
+            </div>
+        </div>
+
+        <!-- TYDZIEŃ 2 – reverse layout (zdjęcie po prawej) -->
+        <div class="week reverse" data-aos="fade-left">
+            <div class="week-img">
+                <img src="https://images.unsplash.com/photo-1522202176988-66273-00aed7a7e9f7?q=80&w=2070&auto=format&fit=crop" alt="Tydzień 2">
+            </div>
+            <div class="week-content">
+                <h3>Tydzień 2 – Full speed!</h3>
+                <p>Intensywna praca nad feature'ami, code review, pair programming. Wdrożyliśmy [coś konkretnego], rozwiązaliśmy trudne bugi.</p>
+                <p>Po pracy – wycieczka w góry/plaża, impreza integracyjna z zespołem, ostatnie zakupy souvenirów.</p>
+                <p>To był niesamowity czas – wracamy z nowymi umiejętnościami i masą wspomnień!</p>
+                
+                <div class="gallery" data-aos="fade-up">
+                    <img src="zdjecie5.jpg" alt="zdj1">
+                    <img src="zdjecie6.jpg" alt="zdj2">
+                    <img src="zdjecie7.jpg" alt="zdj3">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PODSUMOWANIE -->
+    <section class="section" style="background: #2c3e50; color:white; text-align:center;" data-aos="zoom-in">
+        <h2>Podsumowanie</h2>
+        <p style="font-size:1.4rem; max-width:1000px; margin:40px auto;">
+            Te praktyki to było najlepsze doświadczenie w naszym życiu! Nauczyliśmy się nie tylko kodu, ale też samodzielności, pracy w międzynarodowym zespole i życia za granicą. 
+            Polecamy każdemu! 💻✈️❤️
+        </p>
+    </section>
+
+    <script>
+        AOS.init({
+            duration: 900,
+            once: true,
+            offset: 100
+        });
+    </script>
+</body>
+</html>
