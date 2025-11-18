@@ -59,7 +59,6 @@ nav ul li a {
 nav ul li a:hover {
     color: #007bff;
     background: rgba(0,123,255,0.1);
-    font-weight: 600;
 }
 
 nav ul ul {
