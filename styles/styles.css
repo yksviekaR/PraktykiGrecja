@@ -60,25 +60,6 @@
             font-weight: 500;
         }
 
-        /* === NIEBIESKI STICKY PASEK – TERAZ DZIAŁA 100% === */
-        .sticky-header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(0, 123, 255, 0.97);
-            backdrop-filter: blur(12px);
-            color: white;
-            text-align: center;
-            padding: 14px 0;
-            z-index: 2000;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-100%);
-            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
-
         .sticky-header.visible {
             opacity: 1;
             visibility: visible;
@@ -156,7 +137,7 @@
         }
 
         nav ul ul li a {
-            padding: 14px 18px;
+            padding: 10px;
             font-size: 1.1rem;
             text-align: center;
         }
