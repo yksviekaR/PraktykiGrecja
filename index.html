@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GRECJA 2025</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" href="grecja_flaga.png">
+    <link href="https://fonts.googleapis.com/css2?family=Elms+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Elms Sans", sans-serif;
+            background: #f8f8f8;
+            color: #333;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* === PARALLAX HERO === */
+        .parallax-hero {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .parallax-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 120%;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)),
+                        url('https://images.unsplash.com/photo-1501436513145-521d04f67021?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
+            background-attachment: fixed;
+            transform: translateY(0);
+            transition: transform 0.1s ease-out;
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 0 20px;
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            width: 100%;
+        }
+
+        .hero-content h1 {
+            font-size: 6.5rem;
+            font-weight: 900;
+            letter-spacing: 3px;
+            text-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+            margin: 0;
+            line-height: 1;
+            transform: scale(1);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .hero-content p {
+            font-size: 1.6rem;
+            margin-top: 20px;
+            opacity: 0.95;
+            font-weight: 500;
+            transition: all 0.4s ease;
+        }
+
+        /* === STICKY HEADER Z TYTUŁEM (zawsze widoczny po scrollu) === */
+        .sticky-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 123, 255, 0.97);
+            backdrop-filter: blur(12px);
+            color: white;
+            text-align: center;
+            padding: 14px 0;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-100%);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .sticky-header.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .sticky-header h1 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin: 0;
+            letter-spacing: 1px;
+        }
+
+        nav {
+            background: white;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            margin-top: 100vh;
+            position: relative;
+            z-index: 900;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 35px;
+            font-size: 1.5rem;
+            flex-wrap: wrap;
+            padding: 0 20px;
+        }
+
+        nav ul li {
+            position: relative;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            padding: 12px 20px;
+            display: block;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border-radius: 6px;
+        }
+
+        nav ul li a:hover {
+            color: #007bff;
+            background: rgba(0, 123, 255, 0.1);
+            font-weight: 600;
+        }
+  
+        nav ul ul {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            min-width: 160px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            border-radius: 8px;
+            overflow: hidden;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateX(-50%) translateY(-10px);
+            transition: all 0.3s ease;
+        }
+
+        nav ul li:hover > ul {
+            display: flex;
+            flex-direction: column;
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        nav ul ul li a {
+            padding: 14px 18px;
+            font-size: 1.1rem;
+            text-align: center;
+        }
+
+        nav ul ul li a:hover {
+            background: #007bff;
+            color: white;
+        }
+
+        /* === TREŚĆ === */
+        .content {
+            padding: 80px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.2rem;
+        }
+
+        /* === RESPONSYWNOŚĆ === */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 4rem;
+            }
+            .hero-content p {
+                font-size: 1.3rem;
+            }
+            .sticky-header h1 {
+                font-size: 1.5rem;
+            }
+            nav ul {
+                flex-direction: column;
+                gap: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="sticky-header" id="stickyHeader">
+        <h1>GRECJA 2025</h1>
+    </header>
+    <section class="parallax-hero">
+        <div class="parallax-bg" id="parallaxBg"></div>
+        <div class="hero-content" id="heroContent">
+            <h1>GRECJA 2025</h1>
+            <p>IT • Gastronomia • Mechanika – przyszłość zaczyna się tutaj.</p>
+        </div>
+    </section>
+    <nav>
+        <ul>
+            <li><a href="">IT</a>
+                <ul>
+                    <li><a href="">Systemy</a></li>
+                    <li><a href="">DevOps</a></li>
+                    <li><a href="">C++</a></li>
+                </ul>
+            </li>
+            <li><a href="">Gastronomy</a>
+                <ul>
+                    <li><a href="">Kuchnia grecka</a></li>
+                    <li><a href="">Wina</a></li>
+                    <li><a href="">Desery</a></li>
+                </ul>    
+            </li>
+            <li><a href="">Mechanic</a>
+                <ul>
+                    <li><a href="">Silniki</a></li>
+                    <li><a href="">Elektronika</a></li>
+                    <li><a href="">Diagnostyka</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <div class="content">
+        <p>Przewiń w dół, aby odkryć działy i technologie.</p>
+        <p><strong>GRECJA 2025</strong> – miejsce, gdzie nauka spotyka się z kulturą.</p>
+    </div>
+
+    <script>
+        const heroContent = document.getElementById('heroContent');
+        const parallaxBg = document.getElementById('parallaxBg');
+        const stickyHeader = document.getElementById('stickyHeader');
+        const heroSection = document.querySelector('.parallax-hero');
+
+        window.addEventListener('scroll', () => {
+            const scroll = window.scrollY;
+            const heroHeight = heroSection.offsetHeight;
+
+            // Parallax tła
+            const parallaxSpeed = scroll * 0.5;
+            parallaxBg.style.transform = `translateY(${parallaxSpeed}px)`;
+
+            // Skalowanie i znikanie dużego tytułu
+            const progress = Math.min(scroll / (heroHeight * 0.7), 1);
+            const scale = 1 - (progress * 0.7);
+            heroContent.style.transform = `scale(${scale})`;
+            heroContent.style.opacity = 1 - progress;
+
+            // Pokazanie sticky headera
+            if (scroll > heroHeight * 0.6) {
+                stickyHeader.classList.add('visible');
+            } else {
+                stickyHeader.classList.remove('visible');
+            }
+        });
+
+        // Smooth scroll
+        document.documentElement.style.scrollBehavior = 'smooth';
+    </script>
+</body>
+</html>
