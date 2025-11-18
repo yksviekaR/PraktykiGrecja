@@ -145,8 +145,12 @@ nav ul ul li a:hover {
 
 .content{
     text-align: center;
-    padding: 25px;
-    font-size: 18px;
+    padding: 1.1rem;
+    font-size: 1.3rem;
+}
+
+#caption{
+    font-size: 1.6rem;
 }
 
 /* === RESPONSYWNOŚĆ === */
