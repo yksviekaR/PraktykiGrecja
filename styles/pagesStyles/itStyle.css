@@ -50,6 +50,13 @@
         overflow: hidden;
         box-shadow: 0 15px 35px rgba(0,0,0,0.15);
     }
+    .content {
+    padding: 80px 20px;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 1.2rem;
+}
     .week-img img { width: 100%; height: auto; display: block; transition: transform 0.5s; }
     .week-img img:hover { transform: scale(1.08); }
 
