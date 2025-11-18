@@ -1,2 +1,2 @@
 # PraktykiGrecja
-eloelo scyzoryk welcome silver
+https://yksviekar.github.io/PraktykiGrecja/
