@@ -1,2 +1,2 @@
 # PraktykiGrecja
-https://yksviekar.github.io/PraktykiGrecja/
+Linek: https://yksviekar.github.io/PraktykiGrecja/
