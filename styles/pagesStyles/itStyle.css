@@ -83,3 +83,6 @@
         .week, .week.reverse { grid-template-columns: 1fr; text-align: center; }
         .hero h1 { font-size: 3.5rem; }
     }
+    .authors{
+        font-size: 15px;
+    }
