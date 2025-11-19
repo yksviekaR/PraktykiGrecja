@@ -11,7 +11,7 @@
     /* Hero z parallax */
     .hero {
         height: 100vh;
-        background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop') center/cover fixed;
+        background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('..//..//img/pieprzulo.png') center/cover fixed;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -59,7 +59,6 @@ nav ul li a {
 nav ul li a:hover {
     color: #007bff;
     background: rgba(0,123,255,0.1);
-    font-weight: 600;
 }
 
 nav ul ul {
@@ -170,6 +169,7 @@ nav ul ul li a:hover {
     border-radius: 5px;
     transition-duration: 300ms;
     transition-timing-function: ease-in-out;
+    cursor: pointer;
 }
 .footerPhotosContainer img:hover{
     box-shadow: 0px 0px 15px #333;
