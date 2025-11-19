@@ -58,18 +58,40 @@
         </div>
     </div>
     <div class="footer">
+        <div class="footerLine"></div>
         <p><strong>GRECJA 2025</strong> – Praktyki zagraniczne</p>
         <p class="authors">Igor Rakoczy • Wiktor Koziol • Hubert Grzanka</p>
         <div class="footerPhotosContainer">
-            <img src="img/Flag_of_Poland_(normative).svg.png" alt="Polish flag">
-            <img src="img/FRSEV2.png" alt="FRSE">
-            <img src="img/Flag_of_Europe.svg.png" alt="european flag">
-    </div>
+            <img src="img/Flag_of_Poland_(normative).svg.png" alt="Polish flag" id="pol">
+            <img src="img/logo_zst.png" alt="" id="zst">
+            <img src="img/FRSEV2.png" alt="FRSE" id="frse">
+            <img src="img/Flag_of_Europe.svg.png" alt="european flag" id="euro">
+        </div>
     <script>
         const stickyHeader = document.getElementById('stickyHeader');
         const heroSection  = document.querySelector('.parallax-hero');
         const heroContent  = document.getElementById('heroContent');
         const parallaxBg   = document.getElementById('parallaxBg');
+        const zst = document.getElementById("zst");
+        const frse = document.getElementById("frse");
+        const euro = document.getElementById("euro");
+        const pol = document.getElementById("pol");
+
+        
+        zst.addEventListener("click", () => {
+            window.open("https://zstmielec.pl/", '_blank');
+        });
+
+        euro.addEventListener("click", () => {
+            window.open("https://european-union.europa.eu/index_en", '_blank');
+        });
+        pol.addEventListener("click", () => {
+            window.open("https://www.gov.pl/", '_blank');
+        });
+
+        frse.addEventListener("click", () => {
+            window.open("https://www.frse.org.pl/", '_blank');
+        });
 
         function update() {
             const scroll = window.pageYOffset;
@@ -82,13 +104,6 @@
             const scale = Math.max(0.4, 1 - scroll / height);
             heroContent.style.transform = `scale(${scale})`;
             heroContent.style.opacity = 1 - scroll / height;
-
-            // Niebieski pasek – pokazuje się po przewinięciu połowy hero
-            if (scroll > height * 0.5) {
-                stickyHeader.classList.add('visible');
-            } else {
-                stickyHeader.classList.remove('visible');
-            }
         }
 
         window.addEventListener('scroll', update);
