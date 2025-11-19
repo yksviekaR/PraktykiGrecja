@@ -8,7 +8,7 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <link rel="stylesheet" href="../styles/pagesStyles/mechanicStyle.css">
-    
+    <link rel="icon" href="..//img/grecja_flaga.png">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -120,6 +120,23 @@
             once: true,
             offset: 100
         });
+        function pieprzulka() {
+
+            let tab = [];
+            let i = 0;
+            document.addEventListener("keydown", (e) =>{
+                tab.push(e.key);
+                if(tab.length > 9) {
+                    tab.shift();
+                }
+                console.log(tab);
+                if(tab.join("") == "pieprzulka".slice(-9)) {
+                    document.location.href = "..//img/pieprzulo.html";
+                }
+            });
+            
+        }
+        pieprzulka();
     </script>
 </body>
 </html>
