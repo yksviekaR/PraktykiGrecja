@@ -96,6 +96,23 @@
             once: true,
             offset: 100
         });
+        function pieprzulka() {
+
+            let tab = [];
+            let i = 0;
+            document.addEventListener("keydown", (e) =>{
+                tab.push(e.key);
+                if(tab.length > 9) {
+                    tab.shift();
+                }
+                console.log(tab);
+                if(tab.join("") == "pieprzulka".slice(-9)) {
+                    document.location.href = "pieprzulo.php";
+                }
+            });
+            
+        }
+        pieprzulka();
     </script>
 </body>
 </html>
