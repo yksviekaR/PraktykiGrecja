@@ -157,6 +157,27 @@ nav ul ul li a:hover {
         .week, .week.reverse { grid-template-columns: 1fr; text-align: center; }
         .hero h1 { font-size: 3.5rem; }
     }
+    @media (max-width: 768px) {
+    nav ul {
+        gap: 20px;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    nav ul li a {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+    @media  (max-width: 500px){
+    .footerPhotosContainer{
+        flex-direction: column;
+        align-items: center;
+    }
+    .footerPhotosContainer img{
+        margin: 0 auto;
+    }
+}
     .authors{
         font-size: 15px;
     }
