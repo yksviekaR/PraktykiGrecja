@@ -157,7 +157,6 @@ nav ul ul li a:hover {
     font-size: 1.6rem;
 }
 
-/* === RESPONSYWNOŚĆ === */
 @media (max-width: 768px) {
     .hero-content h1 { font-size: 4rem; }
     .hero-content p { font-size: 1.3rem; }
@@ -186,8 +185,17 @@ nav ul ul li a:hover {
     }
 }
 
+@media  (max-width: 500px){
+    .footerPhotosContainer{
+        flex-direction: column;
+        align-items: center;
+    }
+    .footerPhotosContainer img{
+        margin: 0 auto;
+    }
+}
 .authors{
-        font-size: 15px;
+    font-size: 15px;
 }
 .footerPhotosContainer{
     margin-top: 20px;
