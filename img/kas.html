@@ -1,20 +1,171 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dr Pepper Casino</title>
     <link rel="icon" href="https://hotemoji.com/images/dl/5/slot-machine-emoji-by-twitter.png">
-    <style>
-        h1 {
-            text-align: center;
-            font-family: 'Gill Sans', 'Gill Sans MT','Trebuchet MS', sans-serif;
-            letter-spacing: 2%;
+    <!-- Google Font – jak z prawdziwego kasyna -->
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Orbitron:wght@900&display=swap" rel="stylesheet">
 
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            color: #fff;
+            font-family: 'Bangers', cursive;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Migające gwiazdki w tle (kasynowy klimat) */
+        body::before {
+            content: "✦ ★ ✦ ★ ✦ ★ ✦ ★ ✦ ★";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            font-size: 2rem;
+            opacity: 0.1;
+            animation: blink 3s infinite;
+            pointer-events: none;
+            white-space: pre;
+            letter-spacing: 3vw;
+            line-height: 15vh;
+        }
+
+        @keyframes blink {
+            0%,100% { opacity: 0.1; }
+            50% { opacity: 0.3; }
+        }
+
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(2.5rem, 10vw, 6rem);
+            text-align: center;
+            background: linear-gradient(90deg, #ff00cc, #ffff00, #00ff00, #00ffff, #ff00cc);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(255,255,255,0.8);
+            margin-bottom: 2rem;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 20px #fff, 0 0 30px #ff00de, 0 0 40px #ff00de; }
+            to   { text-shadow: 0 0 30px #fff, 0 0 40px #ff00de, 0 0 50px #ff00de; }
+        }
+
+        .login-box {
+            background: rgba(0,0,0,0.7);
+            padding: 40px 30px;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 420px;
+            text-align: center;
+            box-shadow: 0 0 40px rgba(255, 0, 255, 0.6),
+                        0 0 80px rgba(0, 255, 255, 0.4);
+            border: 2px solid #ff00ff;
+            backdrop-filter: blur(10px);
+        }
+
+        .login-box h2 {
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+            color: #ffd700;
+            text-shadow: 0 0 10px #ffd700;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 16px 20px;
+            margin: 12px 0;
+            border: none;
+            border-radius: 50px;
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+            font-size: 1.1rem;
+            outline: none;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            border: 2px solid #00ffff;
+            box-shadow: 0 0 20px #00ffff;
+            background: rgba(0,255,255,0.1);
+        }
+
+        input::placeholder {
+            color: #ff99cc;
+        }
+
+        .btn-login {
+            margin-top: 20px;
+            padding: 16px 40px;
+            width: 100%;
+            font-size: 1.5rem;
+            font-family: 'Bangers', cursive;
+            background: linear-gradient(45deg, #ff003c, #ff8c00);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 0 20px rgba(255,0,0,0.8);
+            transition: all 0.3s;
+        }
+
+        .btn-login:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 40px rgba(255, 60, 0, 0.9);
+        }
+
+        .btn-login:active {
+            transform: scale(0.98);
+        }
+
+        /* Emotki slotów po bokach na dużych ekranach */
+        .slot-left, .slot-right {
+            position: absolute;
+            font-size: 8rem;
+            opacity: 0.3;
+            animation: spin 8s linear infinite;
+            pointer-events: none;
+        }
+        .slot-left  { left: 5%; top: 20%; }
+        .slot-right { right: 5%; bottom: 20%; }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to   { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 600px) {
+            .slot-left, .slot-right { display: none; }
+            .login-box { padding: 30px 20px; }
         }
     </style>
 </head>
 <body>
-    <h1><i>WELCOME TO PIEPRZULO'S CASINO 🎰🎰🎰🎰</i></h1>
+
+    <div class="slot-left">Slot Machine</div>
+    <div class="slot-right">Slot Machine</div>
+
+    <h1>WELCOME TO PIEPRZULO'S CASINO</h1>
+
+    <div class="login-box">
+        <h2>Please log in</h2>
+        <input type="text"     id="login"    placeholder="Login">
+        <input type="password" id="password" placeholder="Password">
+        <button class="btn-login">LOG IN →</button>
+    </div>
+
 </body>
 </html>
