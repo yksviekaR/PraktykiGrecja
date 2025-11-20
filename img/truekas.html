@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PIEPRZULO CASINO – TAJNE GRY</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Orbitron:wght@900&display=swap" rel="stylesheet">
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1a0033, #330066, #000);
+            color: #fff;
+            font-family: 'Bangers', cursive;
+            text-align: center;
+            overflow-x: hidden;
+        }
+        header {
+            padding: 20px;
+            background: rgba(0,0,0,0.8);
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid #ff00ff;
+        }
+        #saldo {
+            font-size: 2rem;
+            color: #ffd700;
+            text-shadow: 0 0 10px gold;
+        }
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4rem;
+            background: linear-gradient(90deg, #ff00cc, #ffff00, #ff00cc);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 100px 0 30px;
+        }
+        .games {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .game-card {
+            background: rgba(0,0,0,0.7);
+            border-radius: 20px;
+            padding: 20px;
+            border: 3px solid #00ffff;
+            box-shadow: 0 0 30px rgba(0,255,255,0.6);
+            transition: all 0.4s;
+        }
+        .game-card:hover { transform: scale(1.05); box-shadow: 0 0 50px #ff00ff; }
+        button {
+            margin: 10px;
+            padding: 15px 30px;
+            font-family: 'Bangers', cursive;
+            font-size: 1.5rem;
+            background: linear-gradient(45deg, #ff003c, #ff8c00);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+        }
+        .slot-reel { font-size: 4rem; margin: 20px; }
+    </style>
+</head>
+<body>
+
+<header>
+    <div>PIEPRZULO COINS: <span id="saldo">1000</span> </div>
+    <button onclick="location.href='../index.html'">Wyloguj</button>
+</header>
+
+<h1>WITAMY W SEKRETNYM KASYNIE</h1>
+
+<div class="games">
+
+    <!-- 1. JEDNORĘKI BANDYTA -->
+    <div class="game-card">
+        <h2>JEDNORĘKI PIEPRZULOMAT</h2>
+        <div class="slot-reel" id="reel1">Cherry</div>
+        <div class="slot-reel" id="reel2">Cherry</div>
+        <div class="slot-reel" id="reel3">Cherry</div>
+        <button onclick="grajSlot()">PULL THE LEVER! (-50)</button>
+    </div>
+
+    <!-- 2. RULETKA -->
+    <div class="game-card">
+        <h2>RULETKA</h2>
+        <p>Zakład: <input type="number" id="bet" value="100" min="10" style="width:80px;"></p>
+        <button onclick="ruletka('red')">Czerwone</button>
+        <button onclick="ruletka('black')">Czarne</button>
+        <button onclick="ruletka('green')">Zielone (x10!)</button>
+        <p id="wynikRuletka"></p>
+    </div>
+
+    <!-- 3. BLACKJACK -->
+    <div class="game-card">
+        <h2>BLACKJACK 21</h2>
+        <p>Twoje karty: <span id="graczKarty">-</span> | Suma: <span id="graczSuma">0</span></p>
+        <p>Krupier: <span id="krupierKarty">-</span></p>
+        <button onclick="blackjackStart()">Nowa gra (-100)</button>
+        <button onclick="hit()" id="hitBtn" style="display:none">Dobierz</button>
+        <button onclick="stand()" id="standBtn" style="display:none">Pas</button>
+        <p id="wynikBJ"></p>
+    </div>
+
+    <!-- 4. HIGHER OR LOWER -->
+    <div class="game-card">
+        <h2>HIGHER OR LOWER</h2>
+        <p>Aktualna liczba: <span id="liczba">5</span></p>
+        <button onclick="higherLower('higher')">HIGHER</button>
+        <button onclick="higherLower('lower')">LOWER</button>
+        <p id="wynikHL"></p>
+    </div>
+
+</div>
+
+<script>
+    let saldo = parseInt(localStorage.getItem("pieprzuloSaldo")) || 1000;
+    document.getElementById("saldo").textContent = saldo;
+
+    function aktualizujSaldo() {
+        document.getElementById("saldo").textContent = saldo;
+        localStorage.setItem("pieprzuloSaldo", saldo);
+        if(saldo <= 0) alert("BANKRUT! Wracaj jak będziesz miał kasę, biedaku!");
+    }
+
+    // === 1. SLOT MACHINE ===
+    const symbole = ["Cherry", "Lemon", "Seven", "Diamond", "Bell", "Bar", "Watermelon", "Seven"];
+    function grajSlot() {
+        if(saldo < 50) return alert("Za mało coinów!");
+        saldo -= 50;
+        const r1 = document.getElementById("reel1");
+        const r2 = document.getElementById("reel2");
+        const r3 = document.getElementById("reel3");
+
+        let spins = 0;
+        const interval = setInterval(() => {
+            r1.textContent = symbole[Math.floor(Math.random()*symbole.length)];
+            r2.textContent = symbole[Math.floor(Math.random()*symbole.length)];
+            r3.textContent = symbole[Math.floor(Math.random()*symbole.length)];
+            spins++;
+            if(spins > 20) {
+                clearInterval(interval);
+                const w1 = r1.textContent;
+                const w2 = r2.textContent;
+                const w3 = r3.textContent;
+                if(w1 === w2 && w2 === w3) {
+                    const wygrana = w1 === "Seven" ? 1000 : 300;
+                    saldo += wygrana;
+                    alert(`JACKPOT!!! +${wygrana} PieprzuloCoinów!`);
+                }
+                aktualizujSaldo();
+            }
+        }, 100);
+    }
+
+    // === 2. RULETKA ===
+    function ruletka(kolor) {
+        const bet = parseInt(document.getElementById("bet").value);
+        if(saldo < bet) return alert("Nie masz tyle!");
+        saldo -= bet;
+        const wynik = Math.random();
+        let wylosowany;
+        if(wynik < 0.486) wylosowany = "red";
+        else if(wynik < 0.973) wylosowany = "black";
+        else wylosowany = "green";
+
+        document.getElementById("wynikRuletka").textContent = `Wypadło: ${wylosowany.toUpperCase()}!`;
+        if(wylosowany === kolor) {
+            const mnoznik = kolor === "green" ? 10 : 2;
+            saldo += bet * mnoznik;
+            alert(`WYGRANA! +${bet*mnoznik}`);
+        }
+        aktualizujSaldo();
+    }
+
+    // === 3. BLACKJACK (uproszczony) ===
+    let talia = [];
+    let gracz = [], krupier = [];
+    function blackjackStart() {
+        if(saldo < 100) return alert("Za mało!");
+        saldo -= 100;
+        talia = ["2","3","4","5","6","7","8","9","10","J","Q","K","A"];
+        gracz = [losujKarte(), losujKarte()];
+        krupier = [losujKarte(), "??"];
+
+        document.getElementById("graczKarty").textContent = gracz.join(" ");
+        document.getElementById("graczSuma").textContent = sumaKart(gracz);
+        document.getElementById("krupierKarty").textContent = krupier.join(" ");
+        document.getElementById("hitBtn").style.display = "inline";
+        document.getElementById("standBtn").style.display = "inline";
+        document.getElementById("wynikBJ").textContent = "";
+        aktualizujSaldo();
+    }
+    function losujKarte() { return talia[Math.floor(Math.random()*talia.length)]; }
+    function wartoscKarty(k) { return k==="A"?11:(isNaN(k)?10:parseInt(k)); }
+    function sumaKart(reka) {
+        let suma = 0; let asy = 0;
+        reka.forEach(k => { if(k==="A") asy++; else suma += wartoscKarty(k); });
+        for(let i=0; i<asy; i++) { suma += suma+11>21 ? 1 : 11; }
+        return suma;
+    }
+    function hit() {
+        gracz.push(losujKarte());
+        document.getElementById("graczKarty").textContent = gracz.join(" ");
+        document.getElementById("graczSuma").textContent = sumaKart(gracz);
+        if(sumaKart(gracz) > 21) koniecBJ("Przegrałeś – za dużo!");
+    }
+    function stand() {
+        krupier[1] = losujKarte();
+        while(sumaKart(krupier) < 17) krupier.push(losujKarte());
+        document.getElementById("krupierKarty").textContent = krupier.join(" ");
+        const sumaG = sumaKart(gracz);
+        const sumaK = sumaKart(krupier);
+        if(sumaK > 21 || sumaG > sumaK) koniecBJ("Wygrałeś +200!");
+        else if(sumaG === sumaK) koniecBJ("Remis – zwrot");
+        else koniecBJ("Przegrałeś!");
+    }
+    function koniecBJ(tekst) {
+        document.getElementById("wynikBJ").textContent = tekst;
+        if(tekst.includes("Wygrałeś")) saldo += 200;
+        document.getElementById("hitBtn").style.display = "none";
+        document.getElementById("standBtn").style.display = "none";
+        aktualizujSaldo();
+    }
+
+    // === 4. HIGHER OR LOWER ===
+    let aktualna = 5;
+    document.getElementById("liczba").textContent = aktualna;
+    function higherLower(typ) {
+        if(saldo < 50) return;
+        saldo -= 50;
+        const nowa = Math.floor(Math.random()*10) + 1;
+        const wygrana = (typ === "higher" && nowa > aktualna) || (typ === "lower" && nowa < aktualna);
+        document.getElementById("wynikHL").textContent = `Wypadło ${nowa}! ${wygrana?"WYGRANA +150":"Przegrana"}`;
+        if(wygrana) saldo += 150;
+        aktualna = nowa;
+        document.getElementById("liczba").textContent = aktualna;
+        aktualizujSaldo();
+    }
+</script>
+
+</body>
+</html>
