@@ -187,7 +187,7 @@ nav ul ul li a:hover {
     }
 }
 
-@media  (max-width: 500px){
+@media (max-width: 500px){
     .footerPhotosContainer{
         flex-direction: column;
         align-items: center;
