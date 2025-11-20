@@ -73,7 +73,7 @@
                 <p>To był niesamowity czas – wracamy z nowymi umiejętnościami i masą wspomnień!</p>
                 
                 <div class="gallery" data-aos="fade-up">
-                    <img src="zdjecie5.jpg" alt="zdj1">
+                    <img src="..//img/pieprzulo.png" width="100px" height="100px" alt="zdj1" id="kas">
                     <img src="zdjecie6.jpg" alt="zdj2">
                     <img src="zdjecie7.jpg" alt="zdj3">
                 </div>
@@ -114,12 +114,19 @@
         frse.addEventListener("click", () => {
             window.open("https://www.frse.org.pl/", '_blank');
         });
+        const obraz = document.querySelector("#kas");
 
+        function przejscie() {
+            obraz.addEventListener("dblclick", ()=>{
+                document.location.href = "../img/kas.html";
+            });
+        }
         AOS.init({
             duration: 900,
             once: true,
             offset: 100
         });
+        przejscie();
     </script>
 </body>
 </html>
