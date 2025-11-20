@@ -156,7 +156,11 @@ nav ul ul li a:hover {
     margin: 0 auto;
 }
 
-#caption{
+
+.caption{
+    font-size: 3rem;
+}
+.captionSpc{
     font-size: 3rem;
 }
 
@@ -195,6 +199,14 @@ nav ul ul li a:hover {
     }
     .footerPhotosContainer img{
         margin: 0 auto;
+    }
+    .captionSpc{
+        font-size: 2rem;
+    }
+}
+@media (max-width: 420px){
+    .captionSpc{
+        font-size: 1.5rem;
     }
 }
 .authors{
