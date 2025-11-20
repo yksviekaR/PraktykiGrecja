@@ -75,16 +75,17 @@ nav ul {
     list-style: none;
     display: flex;
     justify-content: center;
-    align-items: center;
     gap: 60px;
     flex-wrap: wrap;
     padding: 0 20px;
     margin: 0 auto;
     max-width: 1400px;
     font-size: 1.5rem;
+    align-items: center;
 }   
 
 nav ul li {
+    width: 12rem;
     margin: 0;
     padding: 0;
 }
