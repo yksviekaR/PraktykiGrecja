@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materiały z praktyk w Grecji</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="../styles/pagesStyles/pobierzStyle.css">
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Praktyki w Grecji 2025</h1>
+        <p class="subtitle">Wszystkie materiały z wyjazdu w jednym miejscu</p>
+    </header>
+
+    <div class="downloads">
+        
+        <div class="card">
+            <img src="../img/pieprzulo.png" alt="Prezentacja">
+            <div class="card-content">
+                <h3>Prezentacja końcowa</h3>
+                <p>Podsumowanie całego pobytu i projektu<br><strong>Prezentacja_Grecja_2025.pptx</strong> (14 MB)</p>
+                <a href="pliki/Prezentacja_Grecja_2025.pptx" class="btn" download>
+                    <i class="fas fa-download"></i> Pobierz
+                </a>
+            </div>
+        </div>
+
+        
+        <div class="card">
+            <img src="../img/pieprzulo.png" alt="Zdjęcia">
+            <div class="card-content">
+                <h3>Zdjęcia i dokumenty</h3>
+                <p>Wszystkie zdjęcia, zgłoszenia, umowy, certyfikaty<br><strong>Materialy_Grecja_2025.zip</strong> (127 MB)</p>
+                <a href="pliki/Materialy_Grecja_2025.zip" class="btn" download>
+                    <i class="fas fa-download"></i> Pobierz
+                </a>
+            </div>
+        </div>
+
+        
+        <div class="card">
+            <img src="../img/pieprzulo.png" alt="Film">
+            <div class="card-content">
+                <h3>Film z wyjazdu</h3>
+                <p>Nasz oficjalny film podsumowujący praktyki<br><strong>Grecja_2025_film.mp4</strong> (215 MB)</p>
+                <a href="pliki/Grecja_2025_film.mp4" class="btn" download>
+                    <i class="fas fa-download"></i> Pobierz
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="wave"></div>
+    <br><br>
+    <div class="footer">
+        <div class="footerLine"></div>
+        <p><strong>GRECJA 2025</strong> – Praktyki zagraniczne</p>
+        <p class="authors">Igor Rakoczy • Wiktor Koziol • Hubert Grzanka</p>
+        <div class="footerPhotosContainer">
+            <img src="../img/Flag_of_Poland_(normative).svg.png" alt="Polish flag" id="pol">
+            <img src="../img/logo_zst.png" alt="" id="zst">
+            <img src="../img/FRSEV2.png" alt="FRSE" id="frse">
+            <img src="../img/Flag_of_Europe.svg.png" alt="european flag" id="euro">
+        </div>
+</div>
+    <script>
+        const zst = document.getElementById("zst");
+        const frse = document.getElementById("frse");
+        const euro = document.getElementById("euro");
+        const pol = document.getElementById("pol");
+
+        zst.addEventListener("click", () => {
+            window.open("https://zstmielec.pl/", '_blank');
+        });
+
+        euro.addEventListener("click", () => {
+            window.open("https://european-union.europa.eu/index_en", '_blank');
+        });
+        pol.addEventListener("click", () => {
+            window.open("https://www.gov.pl/", '_blank');
+        });
+
+        frse.addEventListener("click", () => {
+            window.open("https://www.frse.org.pl/", '_blank');
+        });
+    </script>
+</body>
+</html>
