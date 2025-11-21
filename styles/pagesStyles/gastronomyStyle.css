@@ -102,7 +102,7 @@ nav ul ul li a:hover {
 
     /* Sekcje */
     .section {
-        padding: 100px 10%;
+        padding: 50px 10%;
         max-width: 1400px;
         margin: 0 auto;
     }
@@ -199,4 +199,11 @@ nav ul ul li a:hover {
 }
 .footerPhotosContainer img:hover{
     box-shadow: 0px 0px 15px #333;
+}
+.footerLine{
+    height: 1px;
+    border-radius: 0.2px;
+    width: 100%;
+    margin: 0 auto 20px auto;
+    background-color: #333;
 }

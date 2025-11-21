@@ -25,14 +25,14 @@
             margin-bottom: 50px;
         }
         h1 {
-            font-family: 'Playfair Display', serif;
+            font-family: "Elms Sans", sans-serif;;
             font-size: 3.5rem;
-            color: #1a5d8c;
+            color: #2c3e50;
             margin-bottom: 10px;
         }
         .subtitle {
             font-size: 1.3rem;
-            color: #e67e22;
+            color: #274564;
             font-weight: 600;
         }
         .wave {
@@ -94,6 +94,13 @@
             margin-top: 80px;
             color: #555;
             font-size: 0.9rem;
+        }
+        .footerLine{
+            height: 1px;
+            border-radius: 0.2px;
+            width: 100%;
+            margin: 0 auto 20px auto;
+            background-color: #333;
         }
         .olive {
             color: #27ae60;
