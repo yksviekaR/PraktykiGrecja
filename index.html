@@ -53,7 +53,6 @@
         </p><br>
         <div>
             <p>
-                <!-- === MNIEJSZY SLIDER Z AUTOPLAY === -->
             <div class="slider-container">
                 <div class="slider">
                     <img src="img/pieprzulo.png" alt="Czas wolny – Ateny 2025">
@@ -63,7 +62,6 @@
                     <img src="img/pieprzulo.png" alt="Czas wolny – Ateny 2025">
                     <img src="img/pieprzulo.png" alt="Czas wolny – Ateny 2025">
                     <img src="img/pieprzulo.png" alt="Czas wolny – Ateny 2025">
-                    <!-- dodawaj kolejne zdjęcia tutaj -->
                 </div>
 
                 <button class="prev" aria-label="Poprzednie">&#10094;</button>
@@ -114,10 +112,8 @@
             const scroll = window.pageYOffset;
             const height = heroSection.offsetHeight;
 
-            // Parallax
             parallaxBg.style.transform = `translateY(${scroll * 0.5}px)`;
 
-            // Znikanie dużego tytułu
             const scale = Math.max(0.4, 1 - scroll / height);
             heroContent.style.transform = `scale(${scale})`;
             heroContent.style.opacity = 1 - scroll / height;
@@ -126,7 +122,7 @@
         window.addEventListener('scroll', update);
         window.addEventListener('load', update);
         window.addEventListener('resize', update);
-        setTimeout(update, 100); // na wszelki wypadek
+        setTimeout(update, 100);
         
         document.addEventListener('DOMContentLoaded', function () {
         const slider = document.querySelector('.slider');
@@ -137,7 +133,6 @@
         let currentIndex = 0;
         let autoPlayInterval;
 
-        // Tworzenie kropek
         slides.forEach((_, i) => {
             const dot = document.createElement('span');
             dot.addEventListener('click', () => goToSlide(i));
@@ -168,7 +163,6 @@
 
         nextBtn.addEventListener('click', nextSlide);
 
-        // === AUTOPLAY – co 4000 ms (4 sekundy) ===
         function startAutoplay() {
             autoPlayInterval = setInterval(nextSlide, 2000);
         }
@@ -179,11 +173,9 @@
 
         startAutoplay();
 
-        // Pauza po najechaniu myszką (opcjonalnie – bardzo fajny efekt)
         document.querySelector('.slider-container').addEventListener('mouseenter', stopAutoplay);
         document.querySelector('.slider-container').addEventListener('mouseleave', startAutoplay);
 
-        // Strzałki klawiatury
         document.addEventListener('keydown', e => {
             if (e.key === 'ArrowLeft') prevBtn.click();
             if (e.key === 'ArrowRight') nextBtn.click();
