@@ -255,7 +255,8 @@ nav ul ul li a:hover {
 .slider img {
     width: 100%;
     height: auto;
-    min-height: 380px;
+    min-height: 100px;
+    max-height: 500px;
     object-fit: cover;
     flex-shrink: 0;
     user-select: none;
