@@ -234,12 +234,12 @@
     }
 
     // === 4. HIGHER OR LOWER ===
-    let aktualna = 5;
+    let aktualna = 50;
     document.getElementById("liczba").textContent = aktualna;
     function higherLower(typ) {
         if(saldo < 50) return;
         saldo -= 50;
-        const nowa = Math.floor(Math.random()*10) + 1;
+        const nowa = Math.floor(Math.random()*100) + 1;
         const wygrana = (typ === "higher" && nowa > aktualna) || (typ === "lower" && nowa < aktualna);
         document.getElementById("wynikHL").textContent = `Wypadło ${nowa}! ${wygrana?"WYGRANA +150":"Przegrana"}`;
         if(wygrana) saldo += 150;
