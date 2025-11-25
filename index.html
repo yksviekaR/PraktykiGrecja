@@ -94,6 +94,7 @@
             <img src="img/FRSEV2.png" alt="FRSE" id="frse">
             <img src="img/Flag_of_Europe.svg.png" alt="european flag" id="euro">
         </div>
+        <button id="przejscie">Pobierz ⬇️</button>
     <script>
         const stickyHeader = document.getElementById('stickyHeader');
         const heroSection  = document.querySelector('.parallax-hero');
@@ -103,7 +104,11 @@
         const frse = document.getElementById("frse");
         const euro = document.getElementById("euro");
         const pol = document.getElementById("pol");
+        const pobierz = document.querySelector("#przejscie");
 
+        pobierz.addEventListener("click", ()=> {
+            window.location.href = "pages/pobierz.html";
+        });
         
         zst.addEventListener("click", () => {
             window.open("https://zstmielec.pl/", '_blank');
