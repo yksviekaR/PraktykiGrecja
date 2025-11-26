@@ -203,6 +203,18 @@ nav ul ul li a:hover {
     .captionSpc{
         font-size: 2rem;
     }
+    .footer button {
+        text-decoration: none;
+        border: none;
+        width: 50%;
+        color: #333;
+        padding: 12px 20px;
+        display: block;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        border-radius: 6px;
+        margin: 2% auto 0 auto;
+    }
 }
 @media (max-width: 420px){
     .captionSpc{
@@ -309,18 +321,19 @@ nav ul ul li a:hover {
     transform: scale(1.2);
 }
 .footer button {
-    margin-top: 3em;
+    text-decoration: none;
+    border: none;
     width: 20%;
-    padding: 20px;
-    border-radius: 5px;
-    font-size: 1em;
+    color: #333;
+    padding: 12px 20px;
+    display: block;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border-radius: 6px;
+    margin: 2% auto 0 auto;
 }
 .footer button:hover {
-   
-     transition: all 0.4s ease;
-    box-shadow: 0px 0px 15px black;
-    cursor: pointer;
     color: #007bff;
     background: rgba(0,123,255,0.1);
-    
+    font-weight: 600;
 }
