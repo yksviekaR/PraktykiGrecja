@@ -150,10 +150,7 @@ nav ul {
     padding: 0 20px;
 }
 
-nav ul li {
-    position: relative;
-    width: 12rem;
-}
+
 nav ul li:nth-child(2) {
     position: relative;
     width: 15rem;
