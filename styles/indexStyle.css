@@ -203,22 +203,16 @@ nav ul ul li a:hover {
     .captionSpc{
         font-size: 2rem;
     }
-    .footer button {
-        text-decoration: none;
-        border: none;
-        width: 50%;
-        color: #333;
-        padding: 12px 20px;
-        display: block;
-        font-weight: 500;
-        transition: all 0.3s ease;
-        border-radius: 6px;
-        margin: 2% auto 0 auto;
-    }
+    
+    
 }
 @media (max-width: 420px){
     .captionSpc{
         font-size: 1.5rem;
+    }
+    .footer button {
+        width: 50% !important ;
+        height: auto;
     }
 }
 .authors{
