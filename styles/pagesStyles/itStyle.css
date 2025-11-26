@@ -160,7 +160,10 @@ nav ul ul li a:hover {
     /* Responsywność */
     @media (max-width: 968px) {
         .week, .week.reverse { grid-template-columns: 1fr; text-align: center; }
-        .hero h1 { font-size: 3.5rem; }
+        .hero h1 {
+            font-size: 3rem;
+            line-height: 1.2;
+        }
     }
     @media (max-width: 768px) {
     nav ul {
@@ -181,6 +184,24 @@ nav ul ul li a:hover {
     }
     .footerPhotosContainer img{
         margin: 0 auto;
+    }
+
+    @media (max-width: 600px) {
+    .hero h1 {
+        font-size: 2.3rem;
+    }
+    .hero p {
+        font-size: 1.2rem;
+    }
+    }
+
+    @media (max-width: 430px) {
+        .hero h1 {
+            font-size: 1.9rem;
+        }
+        .hero p{
+            word-wrap: break-word;
+        }
     }
 }
     .authors{
