@@ -25,15 +25,15 @@
     .hero p { font-size: 1.8rem; max-width: 800px; }
 
 
-    nav {
-        background: white;
-        padding: 20px 0;
-        text-align: center;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-        position: relative;
-        z-index: 900;
-        margin-top: -1px;
-    }
+nav {
+    background: white;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    position: relative;
+    z-index: 900;
+    margin-top: -1px;
+}
 
     nav ul {
         list-style: none;
@@ -249,4 +249,72 @@
     color: #007bff;
     background: rgba(0,123,255,0.1);
     
+}
+
+/* Nowa struktura tygodnia */
+.week {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    margin-bottom: 120px;
+    align-items: start;
+}
+
+.week.reverse {
+    direction: rtl;
+}
+.week.reverse .week-content,
+.week.reverse .week-img {
+    direction: ltr;
+}
+
+/* Galeria POD tekstem – zawsze pod opisem */
+.week-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 2px solid #eee;
+}
+
+.week-gallery img {
+    width: 100%;
+    height: 200px;           /* stała wysokość = ładny porządek */
+    object-fit: cover;       /* przycinanie, ale bez rozciągania */
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    transition: transform 0.4s, box-shadow 0.4s;
+}
+
+.week-gallery img:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+/* Responsywność */
+@media (max-width: 968px) {
+    .week,
+    .week.reverse {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .week-img {
+        order: -1;                     /* zdjęcie główne zawsze na górze na telefonie */
+    }
+    
+    .week-gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .week-gallery {
+        grid-template-columns: 1fr;     /* na bardzo małych ekranach jedno pod drugim */
+    }
+    
+    .week-gallery img {
+        height: 250px;
+    }
 }
