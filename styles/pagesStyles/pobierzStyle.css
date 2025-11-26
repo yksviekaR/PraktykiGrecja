@@ -86,7 +86,7 @@
         }
         .btn:hover {
             background: #d35400;
-            transform: scale(1.05);
+            transform: scale(1.10);
         }
         .btn i {
             margin-right: 8px;
@@ -132,76 +132,76 @@
             background-color: #333;
         }
         nav {
-    background: white;
-    padding: 20px 0;
-    text-align: center;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    position: relative;
-    z-index: 900;
-    margin-top: -1px;
-}
+            background: white;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            position: relative;
+            z-index: 900;
+            margin-top: -1px;
+        }
 
-nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: 35px;
-    font-size: 1.5rem;
-    flex-wrap: wrap;
-    padding: 0 20px;
-}
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 35px;
+            font-size: 1.5rem;
+            flex-wrap: wrap;
+            padding: 0 20px;
+        }
 
 
-nav ul li:nth-child(2) {
-    position: relative;
-    width: 15rem;
-}
+        nav ul li:nth-child(2) {
+            position: relative;
+            width: 15rem;
+        }
 
-nav ul li a {
-    text-decoration: none;
-    color: #333;
-    padding: 12px 20px;
-    display: block;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    border-radius: 6px;
-}
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            padding: 12px 20px;
+            display: block;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border-radius: 6px;
+        }
 
-nav ul li a:hover {
-    color: #007bff;
-    background: rgba(0,123,255,0.1);
-}
+        nav ul li a:hover {
+            color: #007bff;
+            background: rgba(0,123,255,0.1);
+        }
 
-nav ul ul {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    background: white;
-    min-width: 160px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-    border-radius: 8px;
-    overflow: hidden;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-}
+        nav ul ul {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            min-width: 160px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            border-radius: 8px;
+            overflow: hidden;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
 
-nav ul li:hover > ul {
-    display: flex;
-    flex-direction: column;
-    opacity: 1;
-    visibility: visible;
-}
+        nav ul li:hover > ul {
+            display: flex;
+            flex-direction: column;
+            opacity: 1;
+            visibility: visible;
+        }
 
-nav ul ul li a {
-    padding: 10px;
-    font-size: 1.1rem;
-    text-align: center;
-}
+        nav ul ul li a {
+            padding: 10px;
+            font-size: 1.1rem;
+            text-align: center;
+        }
 
-nav ul ul li a:hover {
-    background: #007bff;
-    color: white;
-}
+        nav ul ul li a:hover {
+            background: #007bff;
+            color: white;
+        }
