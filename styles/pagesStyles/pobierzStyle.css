@@ -122,6 +122,7 @@
         }
         .footerPhotosContainer img:hover{
             box-shadow: 0px 0px 15px #333;
+            transform: translateY(-10px);
         }
         .footerLine{
             height: 1px;
