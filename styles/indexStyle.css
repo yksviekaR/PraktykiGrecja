@@ -241,6 +241,7 @@ nav ul ul li a:hover {
     box-shadow: 0px 0px 15px #333;
     transform: translateY(-10px);
     transition: all 250ms ease-in;
+    border-radius: 5px;
 }
 .footerLine{
     height: 1px;
