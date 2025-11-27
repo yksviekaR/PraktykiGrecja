@@ -306,6 +306,7 @@ nav ul ul li a:hover {
     width: 70px;
     cursor: pointer;
     transition: 0.3s;
+    border-radius: 5px;
 }
 
 .footerPhotosContainer img:hover {
