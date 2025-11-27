@@ -11,6 +11,11 @@ body {
     line-height: 1.7;
     overflow-x: hidden;
 }
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
 
 /* === PARALLAX HERO === */
 .parallax-hero {
@@ -234,6 +239,8 @@ nav ul ul li a:hover {
 }
 .footerPhotosContainer img:hover{
     box-shadow: 0px 0px 15px #333;
+    transform: translateY(-10px);
+    transition: all 250ms ease-in;
 }
 .footerLine{
     height: 1px;
@@ -328,8 +335,10 @@ nav ul ul li a:hover {
 }
 .footer button:hover {
     color: #007bff;
+    transform: translateY(-5px);
+    box-shadow: 0px 0px 5px #007bff97;
     transition: all 300ms ease-in;
     background: rgba(0,123,255,0.1);
-    font-weight: 600;
+    font-weight: 500;
     cursor: pointer;
 }
