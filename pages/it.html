@@ -124,11 +124,11 @@
             caption.textContent = this.alt || 'Zdjęcie z praktyk w Grecji';
             
             lightbox.classList.add('active');
-            document.body.style.overflow = 'hidden'; // blokuje przewijanie tła
+            document.body.style.overflow = 'hidden'; 
         });
     });
 
-    // Zamykanie po kliknięciu w X lub poza zdjęciem
+    
     document.getElementById('lightbox').addEventListener('click', function(e) {
         if (e.target === this || e.target.classList.contains('lightbox-close')) {
             this.classList.remove('active');
@@ -136,7 +136,7 @@
         }
     });
 
-    // Opcjonalnie: zamykanie klawiszem ESC
+    
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') {
             document.getElementById('lightbox').classList.remove('active');
