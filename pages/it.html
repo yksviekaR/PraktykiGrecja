@@ -62,7 +62,7 @@
         <!-- TYDZIEŃ 2 -->
         <div class="week reverse" data-aos="fade-left">
             <div class="week-img">
-                <img src="../img/itIMG/it5.jpg" alt="Tydzień 2">
+                <img src="../img/itIMG/it5.jpg" alt="Tydzień 2dfdv">
             </div>
             <div class="week-content">
                 <h3 style="color: #fcc203">Tydzień 2 – Finał projektu</h3>
@@ -71,7 +71,7 @@
                 <p>To był niesamowity czas – wracamy z nowymi umiejętnościami i masą wspomnień!</p>
                 
                 <div class="week-gallery">
-                    <img src="../img/itIMG/it16.jpg" alt="Zdjęcie 1">
+                    <img src="../img/itIMG/it16.jpg" alt="chuj">
                     <img src="../img/itIMG/it15.jpg" alt="Zdjęcie 2">
                     <img src="../img/itIMG/it10.jpg" alt="Zdjęcie 3">
                     <img src="../img/itIMG/it17.jpg" alt="Zdjęcie 4">
@@ -91,7 +91,12 @@
             <img src="../img/Flag_of_Europe.svg.png" alt="european flag" id="euro">
         </div>
     </div>
-
+    <!-- LIGHTBOX MODAL -->
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img class="lightbox-content" id="lightbox-img" src="" alt="Powiększone zdjęcie">
+        <div class="lightbox-caption" id="lightbox-caption"></div>
+    </div>
     <script>
         document.querySelectorAll('#zst, #frse, #euro, #pol').forEach(el => {
             el.style.cursor = 'pointer';
@@ -107,6 +112,38 @@
             once: true,
             offset: 100
         });
+        document.querySelectorAll('.week-img img, .week-gallery img').forEach(img => {
+        img.style.cursor = 'zoom-in';
+        img.addEventListener('click', function() {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const caption = document.getElementById('lightbox-caption');
+
+            lightboxImg.src = this.src;
+            lightboxImg.alt = this.alt;
+            caption.textContent = this.alt || 'Zdjęcie z praktyk w Grecji';
+            
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden'; // blokuje przewijanie tła
+        });
+    });
+
+    // Zamykanie po kliknięciu w X lub poza zdjęciem
+    document.getElementById('lightbox').addEventListener('click', function(e) {
+        if (e.target === this || e.target.classList.contains('lightbox-close')) {
+            this.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+    });
+
+    // Opcjonalnie: zamykanie klawiszem ESC
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+    });
     </script>
+
 </body>
 </html>
