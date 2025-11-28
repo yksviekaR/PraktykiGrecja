@@ -96,12 +96,13 @@
         <span class="lightbox-close">&times;</span>
         <img class="lightbox-content" id="lightbox-img" src="" alt="Powiększone zdjęcie">
         <div class="lightbox-caption" id="lightbox-caption"></div>
+        <div> siemano</div>
     </div>
     <script>
         document.querySelectorAll('#zst, #frse, #euro, #pol').forEach(el => {
             el.style.cursor = 'pointer';
         });
-
+        
         document.getElementById("zst").addEventListener("click", () => window.open("https://zstmielec.pl/", '_blank'));
         document.getElementById("euro").addEventListener("click", () => window.open("https://european-union.europa.eu/index_en", '_blank'));
         document.getElementById("pol").addEventListener("click", () => window.open("https://www.gov.pl/", '_blank'));
