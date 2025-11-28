@@ -1,31 +1,26 @@
-* { margin: 0; padding: 0; box-sizing: border-box; 
+/* ====================== RESET & GLOBAL ====================== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { width: 100%; overflow-x: hidden; scroll-behavior: smooth; }
+body { font-family: 'Poppins', sans-serif; background: #f8f9fa; color: #333; line-height: 1.6; }
+img { max-width: 100%; height: auto; display: block; }
 
-    }
-    body { 
-        font-family: 'Poppins', sans-serif; 
-        background: #f8f9fa; 
-        color: #333; 
-        line-height: 1.6;
-    }
-    html, body {
-        margin: 0;
-        padding: 0;
-        overflow-x: hidden;
-    }
-    /* Hero z parallax */
-    .hero {
-        height: 100vh;
-        background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop') center/cover fixed;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        color: white;
-    }
-    .hero h1 { font-size: 4.5rem; margin-bottom: 20px; }
-    .hero p { font-size: 1.8rem; max-width: 800px; }
+/* ====================== HERO ====================== */
+.hero {
+    height: 100vh;
+    min-height: 500px;
+    background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+                 url('../../img/MechanicIMG/mechanik5.jpg') center/cover no-repeat fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding: 0 20px;
+}
+.hero h1 { font-size: 4.5rem; margin-bottom: 20px; text-shadow: 0 0 20px rgba(0,0,0,0.9); }
+.hero p { font-size: 1.8rem; max-width: 900px; font-weight: 900; text-shadow: 0 0 20px rgba(0,0,0,0.9); }
 
-/* === NAWIGACJA === */
+/* ====================== NAVBAR ====================== */
 nav {
     background: white;
     padding: 20px 0;
@@ -35,245 +30,121 @@ nav {
     z-index: 900;
     margin-top: -1px;
 }
+nav ul { list-style: none; display: flex; justify-content: center; gap: 35px; font-size: 1.5rem; flex-wrap: wrap; padding: 0 20px; }
+nav ul li a { text-decoration: none; color: #333; padding: 12px 20px; display: block; font-weight: 500; transition: all 0.3s ease; border-radius: 6px; }
+nav ul li a:hover { color: #007bff; background: rgba(0,123,255,0.1); }
 
-nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: 35px;
-    font-size: 1.5rem;
-    flex-wrap: wrap;
-    padding: 0 20px;
+/* Responsywne menu */
+@media (max-width: 768px) {
+    nav ul { flex-direction: column; gap: 15px; }
+    nav ul li a { max-width: 300px; margin: 0 auto; }
 }
 
-nav ul li {
-    position: relative;
-    width: 12rem;
-}
-nav ul li:nth-child(2) {
-    position: relative;
-    width: 15rem;
-}
+/* ====================== SEKCJE ====================== */
+.section { padding: 70px 5%; max-width: 1400px; margin: 0 auto; }
+.section h2 { font-size: 2.8rem; text-align: center; margin-bottom: 50px; color: #2c3e50; }
 
-nav ul li a {
-    text-decoration: none;
-    color: #333;
-    padding: 12px 20px;
-    display: block;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    border-radius: 6px;
+/* ====================== TYGODNIE ====================== */
+.week {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    margin-bottom: 140px;
+    align-items: start;
 }
+.week.reverse { direction: rtl; }
+.week.reverse > * { direction: ltr; }
 
-nav ul li a:hover {
-    color: #007bff;
-    background: rgba(0,123,255,0.1);
-}
-
-nav ul ul {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    background: white;
-    min-width: 160px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-    border-radius: 8px;
+.week-img {
+    border-radius: 20px;
     overflow: hidden;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.18);
+    background: #fff;
+    padding: 18px;
 }
-
-nav ul li:hover > ul {
-    display: flex;
-    flex-direction: column;
-    opacity: 1;
-    visibility: visible;
-}
-
-nav ul ul li a {
-    padding: 10px;
-    font-size: 1.1rem;
-    text-align: center;
-}
-
-nav ul ul li a:hover {
-    background: #007bff;
-    color: white;
-}
-
-    /* Sekcje */
-    .section {
-        padding: 50px 10%;
-        max-width: 1400px;
-        margin: 0 auto;
-    }
-    .section h2 {
-        font-size: 3rem;
-        text-align: center;
-        margin-bottom: 60px;
-        color: #2c3e50;
-    }
-
-    /* Timeline / Tygodnie */
-    .week {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 60px;
-        margin-bottom: 100px;
-        align-items: center;
-    }
-    .week.reverse { grid-template-columns: 1fr 1fr; direction: rtl; }
-    .week.reverse .week-content { direction: ltr; }
-
-    .week-img {
-        border-radius: 15px;
-        overflow: hidden;
-        box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-    }
-    .footer{
-    padding: 80px 20px;
-    max-width: 900px;
-    margin: 0 auto;
-    text-align: center;
-    font-size: 1.2rem;
-}
-    .week-img img { width: 100%; height: auto; display: block; transition: transform 0.5s; }
-    .week-img img:hover { transform: scale(1.08); }
-
-    .week-content h3 { font-size: 2.4rem; margin-bottom: 25px; color: #fcc203; }
-    .week-content p { font-size: 1.2rem; margin-bottom: 20px; }
-
-    /* Galeria zdjęć w tygodniu */
-    .gallery {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 20px;
-        margin-top: 40px;
-    }
-    .gallery img {
-        width: 100%;
-        border-radius: 12px;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        transition: transform 0.4s;
-    }
-    .gallery img:hover { transform: translateY(-12px); }
-
-    /* Responsywność */
-    @media (max-width: 968px) {
-        .week, .week.reverse { grid-template-columns: 1fr; text-align: center; }
-        .hero h1 {
-            font-size: 3rem;
-            line-height: 1.2;
-        }
-    }
-    @media (max-width: 768px) {
-    nav ul {
-        gap: 20px;
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    nav ul li a {
-        width: 100%;
-        max-width: 300px;
-    }
-}
-    @media (max-width: 500px){
-    .footerPhotosContainer{
-        flex-direction: column;
-        align-items: center;
-    }
-    .footerPhotosContainer img{
-        margin: 0 auto;
-    }
-
-    @media (max-width: 600px) {
-    .hero h1 {
-        font-size: 2.3rem;
-    }
-    .hero p {
-        font-size: 1.2rem;
-    }
-}
-
-@media (max-width: 430px) {
-    .hero h1 {
-        font-size: 1.9rem;
-    }
-    .hero p{
-        word-wrap: break-word;
-    }
-}
-}
-    .authors{
-        font-size: 15px;
-    }
-    .footerPhotosContainer{
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-}
-.footerPhotosContainer img{
-    height: auto;
-    width: 80px;
-    margin: 0 30px;
-    border-radius: 5px;
-    transition-duration: 300ms;
-    transition-timing-function: ease-in-out;
-    cursor: pointer;
-}
-.footerPhotosContainer img:hover{
-    box-shadow: 0px 0px 15px #333;
-    transform: translateY(-10px);
-}
-.footerLine{
-    height: 1px;
-    border-radius: 0.2px;
+.week-img img {
     width: 100%;
-    margin: 0 auto 20px auto;
-    background-color: #333;
+    border-radius: 16px;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
 }
-.footer button {
-    margin-top: 3em;
-    width: 20%;
-    padding: 20px;
-    border-radius: 5px;
-    font-size: 1em;
+.week-img img:hover { transform: scale(1 1.04); }
+
+.week-content h3 { font-size: 2.4rem; margin-bottom: 25px; color: #0066cc; }
+.week-content p { font-size: 1.2rem; margin-bottom: 18px; }
+
+/* GALERIA POD TYGODNIEM */
+.week-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 2px solid #eee;
 }
-.footer button:hover {
-   
-     transition: all 0.4s ease;
-    box-shadow: 0px 0px 15px black;
-    cursor: pointer;
-    color: #007bff;
-    background: rgba(0,123,255,0.1);
-    
+.week-gallery img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    border-radius: 14px;
+    transition: all 0.4s ease;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
 }
+.week-gallery img:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+}
+
+/* ====================== RESPONSIVE ====================== */
+@media (max-width: 1024px) {
+    .hero h1 { font-size: 3.8rem; }
+    .hero p { font-size: 1.5rem; }
+    .week { grid-template-columns: 1fr; text-align: center; gap: 50px; }
+    .week-img { order: -1; }
+}
+@media (max-width: 768px) {
+    .hero h1 { font-size: 3rem; }
+    .hero p { font-size: 1.3rem; }
+    .section h2 { font-size: 2.4rem; }
+    .week-content h3 { font-size: 2rem; }
+    .week-gallery img { height: 190px; }
+}
+@media (max-width: 480px) {
+    .hero { min-height: 460px; }
+    .hero h1 { font-size: 2.2rem; line-height: 1.2; }
+    .hero p { font-size: 1.1rem; }
+    .section { padding: 50px 4%; }
+    .section h2 { font-size: 2rem; }
+    .week-content h3 { font-size: 1.8rem; }
+    .week-content p { font-size: 1rem; }
+    .week-gallery { grid-template-columns: 1fr; gap: 16px; }
+    .week-gallery img { height: 210px; }
+}
+
+/* ====================== FOOTER ====================== */
+.footer { padding: 80px 20px 60px; text-align: center; font-size: 1.1rem; }
+.footerLine { height: 1px; background: #333; width: 80%; margin: 0 auto 30px; }
+.footerPhotosContainer { display: flex; justify-content: center; flex-wrap: wrap; gap: 25px; margin-top: 40px; }
+.footerPhotosContainer img { width: 70px; cursor: pointer; transition: 0.3s; border-radius: 5px; }
+.footerPhotosContainer img:hover { box-shadow: 0px 0px 15px #333; transform: scale(1.1) translateY(-10px); }
+@media (max-width: 480px) { .footerPhotosContainer img { width: 55px; } }
+
+/* ====================== LIGHTBOX ====================== */
 .lightbox {
     display: none;
     position: fixed;
     z-index: 9999;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.92);
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.92);
     justify-content: center;
     align-items: center;
     padding: 20px;
-    box-sizing: border-box;
     opacity: 0;
     transition: opacity 0.4s ease;
 }
-
-.lightbox.active {
-    display: flex;
-    opacity: 1;
-}
-
+.lightbox.active { display: flex; opacity: 1; }
 .lightbox-content {
     max-width: 90%;
     max-height: 90vh;
@@ -282,25 +153,13 @@ nav ul ul li a:hover {
     box-shadow: 0 20px 60px rgba(0,0,0,0.8);
     animation: zoomIn 0.4s ease;
 }
-
 .lightbox-close {
     position: absolute;
-    top: 25px;
-    right: 35px;
-    color: #fff;
-    font-size: 50px;
-    font-weight: bold;
-    cursor: pointer;
-    user-select: none;
-    transition: 0.3s;
-    z-index: 10000;
+    top: 25px; right: 35px;
+    color: #fff; font-size: 50px; font-weight: bold;
+    cursor: pointer; z-index: 10000;
 }
-
-.lightbox-close:hover {
-    color: #fcc203;
-    transform: scale(1.2);
-}
-
+.lightbox-close:hover { color: #fcc203; transform: scale(1.2); }
 .lightbox-caption {
     position: absolute;
     bottom: 30px;
@@ -314,22 +173,11 @@ nav ul ul li a:hover {
     max-width: 90%;
     text-align: center;
 }
-
-/* Animacja pojawiania się zdjęcia */
 @keyframes zoomIn {
     from { transform: scale(0.6); opacity: 0; }
-    to   { transform: scale(1); opacity: 1; }
+    to { transform: scale(1); opacity: 1; }
 }
-
-/* Na telefonach – pełny ekran, trochę mniejsze marginesy */
 @media (max-width: 768px) {
-    .lightbox-close {
-        top: 15px;
-        right: 20px;
-        font-size: 40px;
-    }
-    .lightbox-content {
-        max-width: 95%;
-        max-height: 85vh;
-    }
+    .lightbox-close { top: 15px; right: 20px; font-size: 40px; }
+    .lightbox-content { max-width: 95%; max-height: 85vh; }
 }

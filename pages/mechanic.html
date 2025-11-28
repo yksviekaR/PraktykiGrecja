@@ -8,7 +8,7 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <link rel="stylesheet" href="../styles/pagesStyles/mechanicStyle.css">
-    <link rel="icon" href="..//img/grecja_flaga.png">
+    <link rel="icon" href="../img/grecja_flaga.png">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -28,9 +28,8 @@
     <nav>
         <ul>
             <li><a href="../pages/it.html">IT</a></li>
-            <li><a href="../index.html"><strong>Strona Głowna</strong></a></li>
+            <li><a href="../index.html"><strong>Strona Główna</strong></a></li>
             <li><a href="../pages/gastro.html">Gastronomia</a></li>
-         
         </ul>
     </nav>
     
@@ -42,6 +41,7 @@
     </section>
 
     <section class="section">
+        <!-- TYDZIEŃ 1 -->
         <div class="week" data-aos="fade-right">
             <div class="week-img">
                 <img src="../img/MechanicIMG/582100253_1941639806774782_9120879231090101363_n.jpg" alt="Tydzień 1 – Mechanika">
@@ -52,7 +52,7 @@
                 <p>Zaczęliśmy od wymiany olejów, filtrów, klocków i tarcz. Potem diagnostyka komputerowa, odczytywanie błędów, podstawy spawania MIG/MAG.</p>
                 <p>Po pracy plaża i pierwsze zimne piwo z mechanikami – od razu czuć klimat Grecji!</p>
                 
-                <div class="gallery" data-aos="fade-up">
+                <div class="week-gallery" data-aos="fade-up">
                     <img src="../img/MechanicIMG/mechanik3.jpg" alt="Warsztat">
                     <img src="../img/MechanicIMG/mechanik7.jpg" alt="Diagnostyka">
                     <img src="../img/MechanicIMG/mechanik5.jpg" alt="Podnośnik">
@@ -61,20 +61,22 @@
             </div>
         </div>
 
+        <!-- TYDZIEŃ 2 -->
         <div class="week reverse" data-aos="fade-left">
             <div class="week-img">
                 <img src="../img/MechanicIMG/mechanik4.jpg" alt="Tydzień 2 – Mechanika">
             </div>
             <div class="week-content">
-                <h3 style="color:#0066cc">Tydzień 2</h3>
+                <h3 style="color:#0066cc;">Tydzień 2 - wykręcanie sie od obowiazkow</h3>
                 <p>Praca przy większych naprawach: wymiana sprzęgieł, regeneracja zacisków, serwis klimatyzacji, naprawa koparki i ładowarki.</p>
                 <p>Nauczyliśmy się spawania konstrukcji stalowych i cięcia plazmą. Ostatniego dnia wielka akcja – wymiana silnika w starym Land Roverze!</p>
                 <p>Pożegnalny grill z całym warsztatem, grecka muzyka i morze wrażeń. Wracamy jako prawdziwi mechanicy!</p>
                 
-                <div class="gallery" data-aos="fade-up">
-                    <img src="../img/MechanicIMG/gawron3.jpg" alt="Spawacz">
-                    <img src="../img/MechanicIMG/gawron2.jpg" alt="Ciężki sprzęt">
-                    <img src="../img/MechanicIMG/gawron4.jpg" alt="Grill pożegnalny">
+                <div class="week-gallery" data-aos="fade-up">
+                    <img src="../img/MechanicIMG/gawron3.jpg" alt="Diagnostyka">
+                    <img src="../img/MechanicIMG/gawron2.jpg" alt="Reperowanie">
+                    <img src="../img/MechanicIMG/gawron4.jpg" alt="Mechanika">
+                    <img src="../img/MechanicIMG/gawron5.jpg" alt="Warsztat">
                 </div>
             </div>
         </div>
@@ -89,87 +91,74 @@
             <img src="../img/logo_zst.png" alt="" id="zst">
             <img src="../img/FRSEV2.png" alt="FRSE" id="frse">
             <img src="../img/Flag_of_Europe.svg.png" alt="european flag" id="euro">
-            
         </div>
-        <div id="lightbox" class="lightbox">
-        <span class="lightbox-close">&times;</span>
+    </div>
+
+    <!-- LIGHTBOX -->
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close">×</span>
         <img class="lightbox-content" id="lightbox-img" src="" alt="Powiększone zdjęcie">
         <div class="lightbox-caption" id="lightbox-caption"></div>
     </div>
+
     <script>
-
-        const zst = document.getElementById("zst");
-        const frse = document.getElementById("frse");
-        const euro = document.getElementById("euro");
-        const pol = document.getElementById("pol");
-    
-        zst.addEventListener("click", () => {
-            window.open("https://zstmielec.pl/", '_blank');
-        });
-
-        euro.addEventListener("click", () => {
-            window.open("https://european-union.europa.eu/index_en", '_blank');
-        });
-        pol.addEventListener("click", () => {
-            window.open("https://www.gov.pl/", '_blank');
-        });
-
-        frse.addEventListener("click", () => {
-            window.open("https://www.frse.org.pl/", '_blank');
-        });
-
+        // Inicjalizacja AOS
         AOS.init({
             duration: 900,
             once: true,
             offset: 100
         });
-        function pieprzulka() {
 
+        // Klikanie w logo w stopce
+        document.getElementById("zst").addEventListener("click", () => window.open("https://zstmielec.pl/", '_blank'));
+        document.getElementById("euro").addEventListener("click", () => window.open("https://european-union.europa.eu/index_en", '_blank'));
+        document.getElementById("pol").addEventListener("click", () => window.open("https://www.gov.pl/", '_blank'));
+        document.getElementById("frse").addEventListener("click", () => window.open("https://www.frse.org.pl/", '_blank'));
+
+        // Easter egg – pieprzulka
+        (function() {
             let tab = [];
-            let i = 0;
-            document.addEventListener("keydown", (e) =>{
-                tab.push(e.key);
-                if(tab.length > 9) {
-                    tab.shift();
+            document.addEventListener("keydown", (e) => {
+                tab.push(e.key.toLowerCase());
+                if (tab.length > 10) tab.shift();
+                if (tab.join("") === "pieprzuloo") {
+                    window.location.href = "../img/pieprzulo.html";
                 }
-                if(tab.join("") == "pieprzuloo".slice(-9)) {
-                    document.location.href = "..//img/pieprzulo.html";
-                } 
             });
-            
-        }
-        pieprzulka();
+        })();
+
+        // LIGHTBOX – teraz działa na WSZYSTKICH zdjęciach (duże + galerie)
         document.querySelectorAll('.week-img img, .week-gallery img').forEach(img => {
-        img.style.cursor = 'zoom-in';
-        img.addEventListener('click', function() {
-            const lightbox = document.getElementById('lightbox');
-            const lightboxImg = document.getElementById('lightbox-img');
-            const caption = document.getElementById('lightbox-caption');
+            img.style.cursor = 'zoom-in';
+            img.addEventListener('click', function() {
+                const lightbox = document.getElementById('lightbox');
+                const lightboxImg = document.getElementById('lightbox-img');
+                const caption = document.getElementById('lightbox-caption');
 
-            lightboxImg.src = this.src;
-            lightboxImg.alt = this.alt;
-            caption.textContent = this.alt || 'Zdjęcie z praktyk w Grecji';
-            
-            lightbox.classList.add('active');
-            document.body.style.overflow = 'hidden'; 
+                lightboxImg.src = this.src;
+                lightboxImg.alt = this.alt;
+                caption.textContent = this.alt || 'Zdjęcie z praktyk w Grecji';
+                
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
         });
-    });
 
-    
-    document.getElementById('lightbox').addEventListener('click', function(e) {
-        if (e.target === this || e.target.classList.contains('lightbox-close')) {
-            this.classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
-    });
+        // Zamykanie lightboxa
+        document.getElementById('lightbox').addEventListener('click', function(e) {
+            if (e.target === this || e.target.classList.contains('lightbox-close')) {
+                this.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
 
-    
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            document.getElementById('lightbox').classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
-    });
+        // ESC zamyka lightbox
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                document.getElementById('lightbox').classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
     </script>
 </body>
 </html>
